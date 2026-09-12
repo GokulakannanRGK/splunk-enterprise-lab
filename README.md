@@ -1,96 +1,41 @@
-# Splunk Enterprise Lab
+# Splunk Enterprise Configuration
 
-A hands-on cybersecurity and SIEM lab documenting the installation, configuration, data ingestion, SPL queries, Windows log analysis, and dashboard development using Splunk Enterprise on Linux.
+## Overview
 
-## Project Overview
+This section documents the basic configuration performed after installing Splunk Enterprise on Linux.
 
-This project demonstrates practical experience with Splunk Enterprise as a Security Information and Event Management (SIEM) platform.
+The configuration prepares the Splunk environment for log ingestion, indexing, searching, and security monitoring.
 
-The lab focuses on understanding how logs are collected, indexed, searched, analyzed, and visualized using Splunk and Search Processing Language (SPL).
+---
 
-## Objectives
+## 1. Splunk Configuration
 
-* Install Splunk Enterprise on Linux
-* Understand the Splunk architecture and directory structure
-* Configure Splunk Enterprise
-* Create and manage indexes
-* Ingest log data
-* Learn Search Processing Language (SPL)
-* Analyze Windows event logs
-* Perform basic security log analysis
-* Create dashboards and visualizations
-* Develop practical SIEM and SOC-related skills
+After completing the installation, Splunk Enterprise was accessed through the Splunk Web interface.
 
-## Environment
+The configuration phase focuses on preparing the Splunk environment for log analysis.
 
-| Component        | Details                            |
-| ---------------- | ---------------------------------- |
-| Operating System | Kali Linux                         |
-| Platform         | Linux x86_64                       |
-| SIEM             | Splunk Enterprise                  |
-| Query Language   | SPL                                |
-| Primary Use      | Security Monitoring & Log Analysis |
+---
 
-## Repository Structure
+## 2. Index Configuration
 
+Indexes are used by Splunk to store and organize indexed data.
 
-Splunk-Enterprise-Lab/
-│
-├── 01-Installation/
-├── 02-Configuration/
-├── 03-Data-Ingestion/
-├── 04-SPL-Query-Cookbook/
-├── 05-Windows-Event-Logs/
-├── 06-Dashboards/
-└── Screenshots/
+The indexes used in this lab include:
 
+- `main`
+- `windowslogs`
 
-## Project Progress
+The `main` index is the default Splunk index, while `windowslogs` is used for Windows-related log data.
 
-* [x] Splunk Enterprise installation
-* [x] Splunk configuration
-* [x] Index creation
-* [x] Data ingestion
-* [x] Basic SPL queries
-* [x] Advanced SPL queries
-* [x] Windows event log analysis
-* [x] Dashboard creation
+---
 
-## SPL Queries Covered
+## 3. Creating the Windows Logs Index
 
-The project will document practical SPL commands including:
+A dedicated index named `windowslogs` was configured to organize Windows event log data.
 
-index=*
-index=main
+This allows Windows-related events to be searched independently.
+
+Example SPL search:
+
+```spl
 index="windowslogs"
-| table
-| sort
-| reverse
-| stats
-| fieldsummary
-| chart
-
-
-Additional searches and commands will be added as the lab progresses.
-
-## Skills Demonstrated
-
-* Splunk Enterprise
-* SIEM
-* SPL
-* Linux Administration
-* Log Analysis
-* Windows Event Log Analysis
-* Security Monitoring
-* Dashboard Development
-* SOC Fundamentals
-
-## Learning Outcome
-
-This project is intended to demonstrate hands-on experience with Splunk Enterprise and practical SIEM workflows, from initial installation and configuration to log investigation and visualization.
-
-## Author
-
-Rubesh Gokula Kannan M
-
-Cyber Security Student
